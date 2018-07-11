@@ -1,0 +1,16 @@
+h1 Search Results
+
+br
+
+p
+  - @results.each do |result|
+    = result.name
+    ul
+      li
+        = result.address
+      li
+        = result.fuel_type
+      li
+        = result.distance
+      li
+        = result.access_times
