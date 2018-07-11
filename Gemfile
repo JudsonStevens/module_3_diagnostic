@@ -15,6 +15,13 @@ gem 'figaro'
 group :development, :test do
   gem 'byebug'
   gem 'rspec-rails'
+  gem 'active_designer'
+  gem 'capybara'
+  gem 'launchy'
+  gem 'pry'
+  gem 'shoulda-matchers'
+  gem 'simplecov'
+  gem 'figaro'
 end
 
 group :development do
@@ -25,6 +32,5 @@ end
 group :test do
   gem 'vcr'
   gem 'webmock'
-  gem 'capybara'
 end
 
