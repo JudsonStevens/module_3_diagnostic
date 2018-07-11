@@ -44,6 +44,7 @@ GEM
     arel (8.0.0)
     autoprefixer-rails (8.6.5)
       execjs
+    awesome_print (1.8.0)
     bindex (0.5.0)
     bootstrap-sass (3.3.7)
       autoprefixer-rails (>= 5.2.1)
@@ -226,6 +227,7 @@ PLATFORMS
 
 DEPENDENCIES
   active_designer
+  awesome_print
   bootstrap-sass (~> 3.3.6)
   byebug
   capybara

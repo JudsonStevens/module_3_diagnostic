@@ -9,8 +9,10 @@ class SearchController < ApplicationController
       req.params["limit"] = 10
     end
     require 'pry'; binding.pry
-    results.each do |result|
-
+    JSON.parse(results.body.to_json)["fuel_stations"].each do |result|
+      require 'pry'; binding.pry
+      @results << {name: result["station_name"] }
+    end
   end
 end
 
