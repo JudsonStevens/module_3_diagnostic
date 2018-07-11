@@ -2,7 +2,6 @@ require 'rails_helper'
 
 describe 'User' do
   it 'should be able to search from the root page and see a list of results' do
-
     visit('/')
     fill_in(:q, with: 80203)
     click_on("Locate")
