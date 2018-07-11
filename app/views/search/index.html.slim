@@ -3,15 +3,19 @@ h1 Search Results
 br
 
 p
-  - require 'pry'; binding.pry
   - @results.each do |result|
-    = result["name"]
+    'Name:
+    = result[:name]
     ul
       li
-        = result["address"]
+        'Address:
+        = result[:address]
       li
-        = result["fuel_type"]
+        'Fuel Types:
+        = result[:fuel_types]
       li
-        = result["distance"]
+        'Distance: 
+        = result[:distance].round(3)
       li
-        = result["access_times"]
+        'Access Times:
+        = result[:access_times]

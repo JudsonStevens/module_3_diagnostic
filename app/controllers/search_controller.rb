@@ -11,7 +11,7 @@ class SearchController < ApplicationController
     @results = JSON.parse(results.body)["fuel_stations"].map do |result|
       {
         name: result["station_name"],
-        address: "#{result["street_address"]}, #{result["state"]} #{result["zip"]}",
+        address: "#{result["street_address"]}, #{result["city"]} #{result["state"]} #{result["zip"]}",
         fuel_types: result["fuel_type_code"],
         distance: result["distance"],
         access_times: result["access_days_time"]
