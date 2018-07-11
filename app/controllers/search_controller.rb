@@ -1,13 +1,18 @@
 class SearchController < ApplicationController
   def index
-    require 'pry'; binding.pry
     conn = Faraday.new(ENV["FULL_URL"])
-    response = conn.get do |req|
+    results = conn.get do |req|
       req.params["api_key"] = ENV["API_KEY"]
-      req.params["location"] = params["q"]
+      req.params["location"] = params["q"].to_i
       req.params["radius"] = 6.0
       req.params["fuel_type"] = "ELEC,LPG"
       req.params["limit"] = 10
     end
+    require 'pry'; binding.pry
+    results.each do |result|
+
   end
 end
+
+
+
