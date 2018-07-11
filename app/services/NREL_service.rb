@@ -4,18 +4,18 @@ class NRELService
     @conn = Faraday.new(ENV["FULL_URL"])
   end
 
-  def find_service_location_information
+  def find_service_location_information(location)
     @conn.get do |req|
       req.params["api_key"] = ENV["API_KEY"]
-      req.params["location"] = params["q"].to_i
+      req.params["location"] = location.to_i
       req.params["radius"] = 6.0
       req.params["fuel_type"] = "ELEC,LPG"
       req.params["limit"] = 10
     end
   end
 
-  def return_parsed_search_results
-    JSON.parse(find_service_location_information.body)["fuel_stations"].map do |result|
+  def return_parsed_search_results(location)
+    JSON.parse(find_service_location_information(location).body)["fuel_stations"].map do |result|
       {
         name: result["station_name"],
         address: "#{result["street_address"]}, #{result["city"]} #{result["state"]} #{result["zip"]}",
