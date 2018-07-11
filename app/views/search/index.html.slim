@@ -4,7 +4,7 @@ br
 
 p
   - @results.each do |result|
-    'Name:
+    'Station Name:
     = result[:name]
     ul
       li
@@ -16,6 +16,7 @@ p
       li
         'Distance: 
         = result[:distance].round(3)
+        '  miles
       li
         'Access Times:
         = result[:access_times]
