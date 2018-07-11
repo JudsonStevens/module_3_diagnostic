@@ -8,10 +8,14 @@ class SearchController < ApplicationController
       req.params["fuel_type"] = "ELEC,LPG"
       req.params["limit"] = 10
     end
-    require 'pry'; binding.pry
-    JSON.parse(results.body.to_json)["fuel_stations"].each do |result|
-      require 'pry'; binding.pry
-      @results << {name: result["station_name"] }
+    @results = JSON.parse(results.body)["fuel_stations"].map do |result|
+      {
+        name: result["station_name"],
+        address: "#{result["street_address"]}, #{result["state"]} #{result["zip"]}",
+        fuel_types: result["fuel_type_code"],
+        distance: result["distance"],
+        access_times: result["access_days_time"]
+      }
     end
   end
 end
