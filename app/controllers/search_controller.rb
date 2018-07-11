@@ -3,6 +3,3 @@ class SearchController < ApplicationController
     @results = NRELService.new.return_parsed_search_results(params[:q])
   end
 end
-
-
-
